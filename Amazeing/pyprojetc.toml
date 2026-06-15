@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mazegen"
+version = "1.0.0"
+description = "A reusable core maze generation module"
+authors = [{ name = "Your Name", email = "your.email@42.fr" }]
+requires-python = ">=3.10"
+dependencies = [] # Add external dependencies if you used any inside the maze folder
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["maze*"] # Tells pip to ONLY package the generation logic, ignoring UI/Parsers
