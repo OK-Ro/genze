@@ -1,9 +1,15 @@
 #config files
+
+#mandatory:=========
+
 WIDTH=20
 HEIGHT=15
 ENTRY=0,0
 EXIT=19,14
 OUTPUT_FILE=output.txt
 PERFECT=True
+
+#optional:=========
+
 SEED=42
 PATTERN_42=42
