@@ -1,4 +1,4 @@
-from config_parser import parser_config
+from genze.break.config_parser import parser_config
 from src.maze.generator import MazeGenerator
 from src.render.ascii import MazeRenderer
 from src.maze.solver import MazeSolver

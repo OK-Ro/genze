@@ -3,6 +3,9 @@ class Cell:
         self.x = x
         self.y = y
         self.visited: bool = False
+        self.entry: bool = False
+        self.exit: bool = False
+        self.pattern_42: bool = False
 
         self.walls: dict[str, bool] = {
             "N": True,

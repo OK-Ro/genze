@@ -1,7 +1,10 @@
 from typing import Any
-from src.maze.cell import Cell
-from src.algorithms.dfs import DFS_Algorithm
+from genze.break.src.maze.cell import Cell
+from genze.break.src.algorithms.dfs import DFS_Algorithm
+
+from src.patterns.pattern_42 import Pattern42
 import random
+
 
 class MazeGenerator:
     def __init__(self, config: dict[str, Any]) -> None:
@@ -28,6 +31,9 @@ class MazeGenerator:
 
         algo = DFS_Algorithm()
         algo.carve(self.grid, self.entry, self.width, self.height)
+
+        pattern = Pattern42()
+        pattern.apply(self.grid)
 
         entry_x, entry_y = self.entry
         entry_cell = self.grid[entry_y][entry_x]

@@ -1,10 +1,11 @@
-from src.maze.generator import MazeGenerator
+from genze.break.src.maze.generator import MazeGenerator
 
 
 class MazeRenderer:
     GREEN = "\033[92m"
     RED = "\033[91m"
     BLUE = "\033[94m"
+    PURPLE = "\033[95m"
     RESET = "\033[0m"
 
     WALL = "██"
@@ -49,6 +50,9 @@ class MazeRenderer:
 
                 elif (x, y) == self.exit:
                     cell_block = f"{self.RED}{self.WALL}{self.RESET}"
+
+                elif cell.pattern_42:
+                    cell_block = f"{self.PURPLE}{self.WALL}{self.RESET}"
 
                 elif (x, y) in path_set:
                     cell_block = f"{self.BLUE}{self.PATH}{self.RESET}"

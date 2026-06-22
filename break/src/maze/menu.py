@@ -1,4 +1,4 @@
-from src.maze.generator import MazeGenerator
+from genze.break.src.maze.generator import MazeGenerator
 from src.render.ascii import MazeRenderer
 from src.maze.solver import MazeSolver
 

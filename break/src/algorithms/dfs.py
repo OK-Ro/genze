@@ -1,4 +1,4 @@
-from src.algorithms.path import MazeAlgorithms
+from genze.break.src.algorithms.path import MazeAlgorithms
 from src.maze.cell import Cell
 import random
 

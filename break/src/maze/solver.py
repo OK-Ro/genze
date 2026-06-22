@@ -1,4 +1,4 @@
-from src.maze.cell import Cell
+from genze.break.src.maze.cell import Cell
 
 
 class MazeSolver:
@@ -15,6 +15,14 @@ class MazeSolver:
     def solve(self) -> list[tuple[int, int]]:
         start_x, start_y = self.entry
 
+        # Clear previous path and visited
+        self.path = []
+        self.visited = set()
+
+        # Add entry to path immediately
+        self.path.append((start_x, start_y))
+        self.visited.add((start_x, start_y))
+
         if self._dfs(start_x, start_y):
             return self.path
 
@@ -23,16 +31,11 @@ class MazeSolver:
     def _dfs(self, x: int, y: int) -> bool:
         # goal reached
         if (x, y) == self.exit:
-            self.path.append((x, y))
             return True
-
-        # mark visited
-        self.visited.add((x, y))
-        self.path.append((x, y))
 
         cell = self.grid[y][x]
 
-        # directions: (dx, dy, wall, opposite wall not needed here)
+        # directions: (dx, dy, wall)
         moves = [
             (0, -1, "N"),
             (1, 0, "E"),
@@ -53,9 +56,14 @@ class MazeSolver:
             if cell.has_wall(wall):
                 continue
 
+            # Mark as visited and add to path
+            self.visited.add((nx, ny))
+            self.path.append((nx, ny))
+
             if self._dfs(nx, ny):
                 return True
 
-        # backtrack
-        self.path.pop()
+            # backtrack
+            self.path.pop()
+
         return False

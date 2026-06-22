@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from src.maze.cell import Cell
+from genze.break.src.maze.cell import Cell
 
 
 class MazeAlgorithms(ABC):
